@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoCart | Earth-Friendly Shopping</title>
+  <link rel="stylesheet" href="styles.css" />
+  <nav>
+  <a href="login.html" class="btn login-btn">Login</a>
+  <a href="admin.html" class="btn admin-btn">Admin Dashboard</a>
+</nav>
+
+
+</head>
+<body>
+  <button id="scrollTopBtn" title="Go to top">↑</button>
+
+  <header>
+    <nav>
+      <div class="logo">🌿 EcoCart</div>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="toggle-theme" class="theme-btn">🌓</button>
+    </nav>
+  </header>
+
+  <section id="hero" class="section hero">
+    <h1><span class="typing"></span></h1>
+    <p>Explore sustainable, ethically sourced products that protect the planet.</p>
+    <button class="cta-btn">Shop Now</button>
+  </section>
+
+  <section id="categories" class="section fade-in">
+    <h2>Shop by Category</h2>
+    <div class="category-grid">
+      <div class="category">
+        <img src="./home essentials.avif" alt="Home Essentials">
+        <p>Home Essentials</p>
+      </div>
+      <div class="category">
+        <img src="./personal care.jpg" alt="Personal Care">
+        <p>Personal Care</p>
+      </div>
+      <div class="category">
+        <img src="./clothing.jpg" alt="Clothing">
+        <p>Clothing</p>
+      </div>
+      <div class="category">
+        <img src="./zero waste.avif" alt="Zero Waste">
+        <p>Zero Waste</p>
+      </div>
+      <div class="category">
+        <img src="./gifts.jpg" alt="Eco Gifts">
+        <p>Eco Gifts</p>
+      </div>
+      <div class="category">
+        <img src="./travel kit.webp" alt="Travel Accessories">
+        <p>Travel Accessories</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="impact" class="section fade-in">
+  <h2 class="section-title">How It Works</h2>
+  <div class="impact-grid">
+    <div class="impact-card step">
+      <div class="impact-icon bounce">🛒</div>
+      <h3>Step 1</h3>
+      <p>Browse and choose from our curated eco-friendly products.</p>
+    </div>
+    <div class="impact-card step">
+      <div class="impact-icon bounce delay-1">📦</div>
+      <h3>Step 2</h3>
+      <p>Orders are carefully packed using plastic-free, recyclable materials.</p>
+    </div>
+    <div class="impact-card step">
+      <div class="impact-icon bounce delay-2">🌍</div>
+      <h3>Step 3</h3>
+      <p>Receive your order, reuse packaging, and be proud of your impact!</p>
+    </div>
+  </div>
+</section>
+
+
+  <section id="products" class="section fade-in">
+    <h2>Featured Eco Products</h2>
+    <div id="product-container" class="product-grid"></div>
+  </section>
+
+  <section id="contact" class="section contact fade-in">
+    <h2>Contact Us</h2>
+    <p>Have questions or suggestions? Reach out to us!</p>
+    <div class="form-wrapper">
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+<div id="chatbot-toggle">💬</div>
+<div id="chatbot-box">
+<div id="chatbot-controls">
+  <input type="text" id="chatbot-input" placeholder="Ask me something..." />
+  <button id="mic-btn" title="Speak to EcoBot">🎤</button>
+</div>
+
+  <div id="chatbot-header">EcoBot</div>
+  <div id="chatbot-messages"></div>
+  <input type="text" id="chatbot-input" placeholder="Ask me something..." />
+  <div id="quick-questions" style="margin-top: 10px;">
+  <button class="quick-btn">What products do you sell?</button>
+  <button class="quick-btn">What is Eco Score?</button>
+  <button class="quick-btn">How to contact support?</button>
+  <button class="quick-btn">Do you offer returns?</button>
+  <button class="quick-btn">Any discounts or coupons?</button>
+  </div>
+</div>
+
+
+  <footer>
+    <p>© 2025 EcoCart. Sustainability Made Simple.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

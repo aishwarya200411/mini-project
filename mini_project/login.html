@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EcoCart | Login</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #e3ffe3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 1.5rem;
+      color: #2e7d32;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0 1.2rem;
+      border: 1px solid #a5d6a7;
+      border-radius: 4px;
+      font-size: 1rem;
+      outline: none;
+    }
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #388e3c;
+      box-shadow: 0 0 5px #81c784;
+    }
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #388e3c;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #2e7d32;
+    }
+    .signup-link {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #2e7d32;
+    }
+    .signup-link a {
+      color: #388e3c;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .error {
+      color: #d32f2f;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>EcoCart Login</h2>
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="password" id="password" placeholder="Password" required minlength="6" />
+      <div id="error-msg" class="error"></div>
+      <button type="submit">Login</button>
+    </form>
+    <div class="signup-link">
+      Don't have an account? <a href="register.html">Sign Up</a>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const errorMsg = document.getElementById('error-msg');
+
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = loginForm.email.value.trim();
+      const password = loginForm.password.value.trim();
+
+      // Simple validation example
+      if (!email.includes('@')) {
+        errorMsg.textContent = 'Please enter a valid email.';
+        return;
+      }
+      if (password.length < 6) {
+        errorMsg.textContent = 'Password must be at least 6 characters.';
+        return;
+      }
+
+      errorMsg.textContent = '';
+
+      // Placeholder login logic
+      alert(`Logging in with:\nEmail: ${email}\nPassword: ${'*'.repeat(password.length)}`);
+
+      // Redirect to main page after login - update the URL accordingly
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

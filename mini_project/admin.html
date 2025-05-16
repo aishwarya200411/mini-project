@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EcoCart Admin Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f4f3;
+      color: #333;
+    }
+    header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav.admin-nav {
+      background-color: #4caf50;
+      display: flex;
+      padding: 0.5rem 2rem;
+      gap: 1rem;
+    }
+    nav.admin-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    nav.admin-nav a:hover, nav.admin-nav a.active {
+      background-color: #2e7d32;
+    }
+    main {
+      padding: 2rem;
+    }
+    section {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 0.8rem;
+      text-align: left;
+    }
+    th {
+      background-color: #e8f5e9;
+    }
+    .logout-btn {
+      background-color: #c62828;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .logout-btn:hover {
+      background-color: #8e0000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EcoCart Admin</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </header>
+  <nav class="admin-nav">
+    <a href="#products" class="active">Products</a>
+    <a href="#orders">Orders</a>
+    <a href="#users">Users</a>
+  </nav>
+  <main>
+    <section id="products">
+      <h2>Manage Products</h2>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Category</th><th>Price</th><th>Eco Score</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>101</td><td>Bamboo Toothbrush</td><td>Personal Care</td><td>₹150</td><td>9</td><td><button>Edit</button> <button>Delete</button></td></tr>
+          <tr><td>102</td><td>Reusable Water Bottle</td><td>Home Essentials</td><td>₹450</td><td>8</td><td><button>Edit</button> <button>Delete</button></td></tr>
+          <!-- Add more products here -->
+        </tbody>
+      </table>
+    </section>
+
+    <section id="orders">
+      <h2>Manage Orders</h2>
+      <table>
+        <thead>
+          <tr><th>Order ID</th><th>Customer</th><th>Date</th><th>Status</th><th>Total</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>5001</td><td>Ramu</td><td>2025-05-15</td><td>Processing</td><td>₹600</td><td><button>View</button> <button>Update</button></td></tr>
+          <tr><td>5002</td><td>mithra</td><td>2025-05-14</td><td>Delivered</td><td>₹1200</td><td><button>View</button></td></tr>
+          <!-- Add more orders here -->
+        </tbody>
+      </table>
+    </section>
+
+    <section id="users">
+      <h2>Manage Users</h2>
+      <table>
+        <thead>
+          <tr><th>User ID</th><th>Name</th><th>Email</th><th>Role</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>201</td><td>Aishwarya</td><td>aishwarya@example.com</td><td>Customer</td><td><button>View</button> <button>Delete</button></td></tr>
+          <tr><td>202</td><td>Admin</td><td>admin@ecocart.com</td><td>Admin</td><td><button>View</button></td></tr>
+          <!-- Add more users here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+    function logout() {
+      alert("Logging out...");
+      // Add your logout logic here, e.g., redirect to login page or clear session
+      window.location.href = "login.html";
+    }
+
+    // Optional: simple nav tab switching (if you want)
+    document.querySelectorAll('nav.admin-nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelectorAll('nav.admin-nav a').forEach(el => el.classList.remove('active'));
+        link.classList.add('active');
+
+        const sectionId = link.getAttribute('href').substring(1);
+        document.querySelectorAll('main section').forEach(section => {
+          section.style.display = section.id === sectionId ? 'block' : 'none';
+        });
+      });
+    });
+
+    // Show only the products section by default
+    window.onload = () => {
+      document.querySelectorAll('main section').forEach(section => section.style.display = 'none');
+      document.getElementById('products').style.display = 'block';
+    };
+  </script>
+</body>
+</html>
